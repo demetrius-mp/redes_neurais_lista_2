@@ -239,6 +239,24 @@ merges = {
 }
 ```
 
+Tokenização da palavra `inteligencia`:
+
+```python
+t1          = [i, n, t, e, l, i, g, e, n, ci, a]
+token_final = [i, n, t, e, l, i, g, e, n, cia]
+```
+
+Tokenização da palavra `computação`:
+
+```python
+t1          = [co, m, p, u, t, a, c, a, o]
+t2          = [com, p, u, t, a, c, a, o]
+t3          = [comp, u, t, a, c, a, o]
+token_final = [compu, t, a, c, a, o]
+```
+
+[fonte](https://youtu.be/sp2xMWOkHBw?t=3060)
+
 ## 24. Considerando o WordPiece e o vocabulário abaixo, faça a tokenização das palavras "facom" e "computacao"
 
 ```python
@@ -252,10 +270,45 @@ vocabulario = [
 ]
 ```
 
+Tokenização da palavra `facom`
+
+```python
+# `facom` não existe no vocabulário, agora vamos buscar por `faco ##m`
+# `faco ##m` não existe no vocabulário, agora vamos buscar por `fac ##o ##m`
+# `fac ##o ##m` não existe no vocabulário, agora vamos buscar por `fa ##c ##o ##m`
+# `fa ##c ##o ##m` existe no vocabulário, portanto, nosso token é o seguinte
+t1 = ['fa', '##c', '##o', '##m']
+```
+
+Tokenização da palavra `computacao`
+
+```python
+# `computacao` não existe no vocabulário, agora vamos buscar por `computaca ##o`
+# `computaca ##o` não existe no vocabulário, agora vamos buscar por `computac ##a ##o`
+# `computac ##a ##o` não existe no vocabulário, agora vamos buscar por `computa ##c ##a ##o`
+# `computa ##c ##a ##o` existe no vocabulário, portanto, nosso token é o seguinte
+t1 = ['computa', '##c', '##a', '##o']
+
+# caso o token `##a` não existisse no vocabulário, teriamos o seguinte token
+t1 = ['computa', '##c', '[UNK]', '##o']
+```
+
+`Dúvida`: por que o **faz** não foi tokenizado da seguinte forma:
+`[fa, [UNK]]`, visto que o token `fa` existe no vocabulário?
+![Wordpiece](wordpiece.png)
+
+[fonte](https://youtu.be/sp2xMWOkHBw?t=3380)
+
 ## 25. O que acontece com palavras pouco frequentes no tokenizador WordPiece?
+
+Serão tokenizadas caractere por caractere.
 
 ## 26. O que acontece com palavras muito frequentes no tokenizador WordPiece?
 
+Serão tokenizadas como uma palavra inteira, ao invés de como partes da palavra.
+
 ## 27. Contexto similar ou significado similar: qual dessas similaridades melhor representa word embeddings produzidos pelo CBOW?
+
+Contexto similar.
 
 ## 28. Considere a matriz de pesos do CBOW e as entradas a seguir, calcule a saida do modelo
