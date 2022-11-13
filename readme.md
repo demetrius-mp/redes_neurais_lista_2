@@ -174,6 +174,58 @@ kernel = [
 ]
 ```
 
+Produto de `image[0, 0]` com o kernel:
+
+```python
+saida00 = [
+    [1*3, 1*4, 0],
+    [1*5, 1*6, 0],
+    [0,   0,   0]
+]
+```
+
+Produto de `image[0, 1]` com o kernel:
+
+```python
+saida01 = [
+    [0, 2*3, 2*4],
+    [0, 2*5, 2*6],
+    [0,   0,   0]
+]
+```
+
+Produto de `image[1, 0]` com o kernel:
+
+```python
+saida10 = [
+    [0,   0,   0],
+    [3*3, 3*4, 0],
+    [3*5, 3*6, 0]
+]
+```
+
+Produto de `image[1, 1]` com o kernel:
+
+```python
+saida11 = [
+    [0,   0,   0],
+    [0, 4*3, 4*4],
+    [0, 4*5, 4*6]
+]
+```
+
+Somando as saídas, temos:
+
+```python
+saida = [
+    [3,  10,  8],
+    [14, 40, 28],
+    [15, 38, 24]
+]
+```
+
+[fonte](https://youtu.be/VcZFRcudVr4?t=2921)
+
 ## 23. Considerando o BPE e a lista de merges abaixo, faça a tokenização das palavras "inteligencia" e "computação"
 
 ```python
