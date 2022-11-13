@@ -311,4 +311,6 @@ Serão tokenizadas como uma palavra inteira, ao invés de como partes da palavra
 
 Contexto similar.
 
+[fonte](https://youtu.be/sp2xMWOkHBw?t=5760)
+
 ## 28. Considere a matriz de pesos do CBOW e as entradas a seguir, calcule a saida do modelo
