@@ -156,6 +156,10 @@ A entrada é separada por canal. Cada canal da conv é aplicado separadamente em
 
 ## 21. Explique o squeeze-and-excitation
 
+Consiste em ponderar os canais, ou seja, dar mais importância a alguns canais em relação a outros.
+
+[fonte](https://youtu.be/glPd3bpqU2U?t=5316)
+
 ## 22. Considerando a imagem e o kernel abaixo faça uma operação de transposed convolution
 
 ```python
