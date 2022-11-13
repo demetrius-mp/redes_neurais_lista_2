@@ -128,9 +128,13 @@ $\beta = \mu_{\beta}$ (média do batch)
 
 Somando o valor de entrada inicial (identidade) com a saída da convolução.
 
+[fonte](https://youtu.be/glPd3bpqU2U?t=3514)
+
 ## 17. A skip connection faz a soma da identidade com o fluxo da rede em diferentes pontos da rede. O que fazer com a identidade quanto o seu tamanho é incompatível com a região de junção na rede
 
 Downsample, ou seja, faz uma convolução para que o valor de entrada (identidade) seja compatível com a saída, modificando a dimensão da identidade.
+
+[fonte](https://youtu.be/glPd3bpqU2U?t=3562)
 
 ## 18. Faça CONV1x1 com 32 filtros (bottle neck) antes CONV5x5 de 64 e compare o número de parâmetros com e sem bottle neck (veja o vídeo da aula)
 
@@ -140,9 +144,15 @@ Ao aplicar uma CONV1x1 de 32 filtros antes da CONV5x5, a CONV5x5 será aplicada 
 
 Com isso, o número de parâmetros da rede diminui drasticamente. Além disso, uma vantagem de utilizar bottleneck, é que dessa forma a rede tenta generalizar a informação, resumindo-a em menos canais (filtros).
 
+[fonte](https://youtu.be/glPd3bpqU2U?t=4265)
+
 ## 19. Converta as Fully Connected (FC) da questão ?? para CONV
 
 ## 20. Explique a Depth-wise convolution
+
+A entrada é separada por canal. Cada canal da conv é aplicado separadamente em cada canal da entrada. Depois de aplicada em cada canal, os canais são juntados, e então é aplicada uma conv1x1. Como a junção dos canais é feita em um passo separado, adicionar novos filtros à convolução não aumenta muito a quantidade de parâmetros, visto que basta adicionar uma nova conv1x1.
+
+[fonte](https://youtu.be/glPd3bpqU2U?t=4800)
 
 ## 21. Explique o squeeze-and-excitation
 
