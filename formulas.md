@@ -48,3 +48,26 @@ $(3 \times 3 \times 128 + 1) \times 256 = 295168$
 O número de parâmetros utilizando GroupConv é o seguinte:
 
 $(3 \times 3 \times \frac{128}{2} + 1) \times 256 = 147712$
+
+## Quantidade de parâmetros da DepthWise Convolution
+
+- $k =$ tamanho do kernel
+- $in =$ # canais da entrada
+- $out =$ # canais do kernel
+
+$\mathrm{DWConv}(k, in, out) = (k \times k \times in + 1) + (in + 1) \times out$
+
+### Exemplo DepthWise Convolution
+
+As matrizes são lidas como `[altura, largura, canais]`
+
+- Entrada: `[128, 128, 3]`
+- Kernel: `[3, 3, 64]`
+
+Para efeito de comparação, o número de parâmetros utilizando convolução normal é o seguinte:
+
+$(3 \times 3 \times 3 + 1) \times 64 = 1792$
+
+O número de parâmetros utilizando DWConv é o seguinte:
+
+$(3 \times 3 \times 3 + 1) + (3 + 1) \times 64 = 284$
