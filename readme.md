@@ -10,6 +10,8 @@ Em uma **rede convolucional** a informação passa por filtros, com a intenção
 
 ## 2. Explique relação entre a extração automática de características e deep learning
 
+Deep learning faz extração automática de característica, enquanto que antigamente eram utilizadas técnicas de visão computacional.
+
 ## 3. Explique como transformar validação cruzada em leave-one-out
 
 O leave-one-out é uma instância específica da validação cruzada, onde o número de partições é igual ao número de exemplos.
@@ -25,11 +27,15 @@ Durante o treinamento, o conjunto de validação é utilizado repetidas vezes pa
 
 ## 5. Quando o pré-processamento deve ser realizado depois da separação de treino e teste
 
+Quando informação da classe é utilizada no pré processamento, tem que fazer a separação antes, e fazer o pré processamento apenas no conjunto de treino.
+
 ## 6. Qual é o perigo de utilizarmos o resultado da validação como resultado do modelo
 
 O conjunto de validação é utilizado várias vezes pelo modelo para medir o erro. Dessa forma, o modelo tenta ser o mais certeiro possível apenas com relação ao conjunto de validação. Isso se assemelha a "ver a resposta" antes de "responder a uma pergunta".
 
 O ideal, é utilizar um outro conjunto disjunto do treino, e da validação, de forma que esses dados nunca tenham sido utilizados pelo modelo, seja para treinamento, seja para validação.
+
+O resultado de validação costuma ser superestimado, o que pode levar a conclusões erradas, visto que o fine-tunning é realizado utilizando o conjunto de validação.
 
 [fonte](https://youtu.be/4j95MhDenHE?t=4198)
 
@@ -99,6 +105,8 @@ Pois a cross-entropy já aplica softmax internamente.
 A última camada deve conter 3 neurônios, visto que existem 3 saídas (positivo, neutro, e negativo).
 
 ### 13.2 Conside um exemplo da classe positiva, e uma que rede produz como saída os valores `[0.5, 0, 1]` Qual é o valor da cross-entropy este caso
+
+A cross
 
 Assumindo que a saída segue o formato `[positivo, neutro, negativo]`, temos:
 
