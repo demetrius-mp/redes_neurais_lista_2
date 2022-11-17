@@ -24,11 +24,26 @@ Aplicando a Cross Entropy temos:
 
 $\mathrm{CrossEntropy}([0.5, 0, 1], 1) = -\ln\left(\frac{e^{0.5}}{e^{0.5} + e^{0} + e^{1}}\right)$
 
-## Quantidade de parâmetros da Group Convolution
+## Convolução básica
 
 - $k =$ tamanho do kernel
 - $in =$ # canais da entrada
 - $out =$ # canais do kernel
+
+### Número de parâmetros de uma convolução
+
+$\mathrm{Conv}(k, in, out) = (k \times k \times in + 1) \times out$
+
+### Tamanho da feature map
+
+- $F =$ dimensão da entrada
+- $S =$ stride
+- $P =$ padding
+
+$\mathrm{FeatMap}(k, F, S, P) = \lfloor\frac{F + (2P) - k}{S}\rfloor + 1$
+
+## Quantidade de parâmetros da Group Convolution
+
 - $groups =$ # grupos
 
 $\mathrm{GroupConv}(k, in, out, groups) = (k \times k \times \frac{in}{groups} + 1) \times out$
