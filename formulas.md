@@ -140,3 +140,41 @@ $S_t = \beta_2 S_{t-1} + (1 - \beta) (\frac{\partial Loss}{\partial W_t})^2$
 > Tenta reduzir a complexidade do modelo diminuindo os pesos da rede
 
 $w_j = w_j(1 - \alpha \lambda) - \alpha \frac{\partial Loss}{\partial w_j}$
+
+## Amostragem
+
+A amostra tem que representar a distribuição dos dados do mundo real, ou seja, que serão utilizados pelo modelo em produção.
+
+Como obter uma amostra representativa?
+
+- Estratificação: manter a mesma proporção em cada conjunto de dados. Se o conjunto é grande, não é necessário utilizar estratificação.
+- Tamanho da amostra: quanto maior, mais próxima da distribuição real. Grande o suficiente para capturar as particularidades da distribuição.
+- Proporção: deve manter a mesma proporção da distribuição real.
+
+> A pergunta principal é: o conjunto de teste é representativo?
+
+### Holdout (Amostras grandes)
+
+A distribuição é dividida em 2 partes, treinamento e teste. Caso a amostra seja grande, os  exemplos de cada conjuntos são escolhidos aleatoriamente.
+
+O problema do holdout, é que se a amostra é pequena, o conjunto de teste não é representativo.
+
+### Cross Validation
+
+O conjunto é dividido em *folds* (partições), onde um fold será utilizado para teste, e o restante para treino. Isso é repetido para cada fold. A quantidade de execuções é igual a quantidade de partições.
+
+O resultado da cross validation é a média e o desvio padrão da taxa de acerto em cada fold. O desvio padrão indica a estabilidade da amostra.
+
+O cross validation é uma alternativa para caso não haja tantos exemplos para utilizar holdout.
+
+Caso a distribuição dos dados seja balanceada, é recomendado que cada partição tenha pelo menos 30 exemplos. Caso contrário, as partições devem ser maiores.
+
+### Leave one out
+
+Instância específica do cross validation onde o número de partições é igual ao número de exemplos. Ou seja, a quantidade de execuções é igual a quantidade de exemplos.
+
+### Ajuste de parâmetros
+
+O mais comum é dividir a amostra em 3 partes: treino, validação, e teste.
+
+A validação é utilizada para fazer ajuste de parâmetros.
