@@ -70,7 +70,7 @@ $(3 \times 3 \times \frac{128}{2} + 1) \times 256 = 147712$
 - $in =$ # canais da entrada
 - $out =$ # canais do kernel
 
-$\mathrm{DWConv}(k, in, out) = (k \times k \times in + 1) + (in + 1) \times out$
+$\mathrm{DWConv}(k, in, out) = (k \times k + 1) \times in + (in + 1) \times out$
 
 ### Exemplo DepthWise Convolution
 
